@@ -30,7 +30,7 @@ class Project(models.Model):
 class Sentence(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     original_sentence = models.CharField(max_length=500)
-    translated_sentence = models.CharField(max_length=500)
+    translated_sentence = models.CharField(max_length=500, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

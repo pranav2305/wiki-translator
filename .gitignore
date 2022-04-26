@@ -1,0 +1,12 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# PyTest cache
+.pytest_cache/
+
+# Virtual Environment
+venv/
+
+migrations/*
+!migrations/__init__.py

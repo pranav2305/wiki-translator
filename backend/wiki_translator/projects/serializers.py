@@ -24,13 +24,22 @@ class SentenceSerializer(serializers.ModelSerializer):
 
 class DetailPostSerializer(serializers.ModelSerializer):
     sentences = serializers.SerializerMethodField()
+    role = serializers.SerializerMethodField()
 
     class Meta:
         model = Project
-        fields = ('pk','title', 'language','sentences',)
+        fields = ('pk','title', 'language','sentences','role',)
 
     def get_sentences(self, obj):
         return SentenceSerializer(obj.sentence_set.all(), many=True).data
+
+    def get_role(self, obj):
+        user = self.context['request'].user
+        try:
+            project_user = ProjectUser.objects.get(project=obj, user=user)
+            return project_user.get_role_display()
+        except ProjectUser.DoesNotExist:
+            return None
 
 class AddProjectUserSerializer(serializers.ModelSerializer):
     class Meta:

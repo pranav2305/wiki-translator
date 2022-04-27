@@ -1,7 +1,6 @@
 import { useRef, useEffect } from "react";
 import {useCookies} from "react-cookie";
 import {useRouter} from "next/router";
-import {sendReq} from "../utils/requests";
 import {LogInURL, Host} from "../utils/constants";
 
 const Login = () => {

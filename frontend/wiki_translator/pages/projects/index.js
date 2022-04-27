@@ -1,5 +1,6 @@
 import { GetProjectsURL } from "../../utils/constants";
 import { sendReq } from "../../utils/requests";
+import Project from "../../components/Project";
 
 const Projects = ({projects}) => {
 
@@ -8,11 +9,7 @@ const Projects = ({projects}) => {
             <h1>Projects</h1>
             <div>
                 {projects.map(project => (
-                    <div key={project.project.pk}>
-                        <p>{project.project.title}</p>
-                        <p>{project.project.language}</p>
-                        <p>{project.role}</p>
-                    </div>
+                    <Project key={project.project.pk} project={project.project} role={project.role} />
                 ))}
             </div>
         </div>

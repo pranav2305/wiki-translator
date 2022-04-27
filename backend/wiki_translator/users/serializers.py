@@ -48,7 +48,7 @@ class UserSerializer(UserDetailsSerializer):
 
     class Meta(UserDetailsSerializer.Meta):
         model=get_user_model()
-        fields = ('first_name', 'last_name','pk',)
+        fields = ('first_name', 'last_name','pk', 'email')
 
     def update(self, instance, validated_data):
         instance = super().update(instance, validated_data)

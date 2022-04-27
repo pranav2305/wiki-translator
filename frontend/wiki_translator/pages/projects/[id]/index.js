@@ -1,5 +1,5 @@
-import {ProjectURL} from '../../utils/constants';
-import { sendReq } from '../../utils/requests';
+import {ProjectURL} from '../../../utils/constants';
+import { sendReq } from '../../../utils/requests';
 import { useState, useEffect, createRef } from 'react';
 
 const DetailedProject = ({project}) => {
@@ -74,32 +74,32 @@ const DetailedProject = ({project}) => {
 
 export default DetailedProject;
 
-export async function getServerSideProps({query, req}) {
+export async function getServerSideProps({query, req, res}) {
     const tokenCookie = req.headers.cookie;
     if (!tokenCookie) {
-        context.res.writeHead(302, {
+        res.writeHead(302, {
             Location: '/login'
         });
-        context.res.end();
+        res.end();
     }
     var project = {};
     if (query.id) {
         try {
-            project = await sendReq(`${ProjectURL}${query.id}`, tokenCookie);
+            project = await sendReq(`${ProjectURL}${query.id}/`, tokenCookie);
         }
         catch (err) {
             console.log(err);
-            context.res.writeHead(302, {
+            res.writeHead(302, {
                 Location: '/404'
             });
-            context.res.end();
+            res.end();
         }
     }
     else {
-        context.res.writeHead(302, {
+        res.writeHead(302, {
             Location: '/404'
         });
-        context.res.end();
+        res.end();
     }
     return {
         props: {

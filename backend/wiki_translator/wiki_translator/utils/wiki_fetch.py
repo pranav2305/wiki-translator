@@ -1,8 +1,8 @@
 from tkinter import S
-import wikipediaapi
+from wikipediaapi import Wikipedia
 from projects.models import Sentence
 
-wiki_wiki = wikipediaapi.Wikipedia('en')
+wiki_wiki = Wikipedia('en')
 
 def get_wiki_page(title, project):
     page = wiki_wiki.page(title)

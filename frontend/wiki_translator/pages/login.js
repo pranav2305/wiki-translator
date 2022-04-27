@@ -30,8 +30,6 @@ const Login = () => {
             'Host':Host
           },body:credentials});
       
-          console.log(response)
-      
           if(response.ok){
             const data = await response.json();
             setCookie("user", data.key, {

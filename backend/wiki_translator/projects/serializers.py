@@ -4,7 +4,7 @@ from .models import Project,ProjectUser,Sentence
 class CreateProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ('title', 'language',)
+        fields = ('pk', 'title', 'language',)
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
@@ -25,6 +25,7 @@ class SentenceSerializer(serializers.ModelSerializer):
 class DetailPostSerializer(serializers.ModelSerializer):
     sentences = serializers.SerializerMethodField()
     role = serializers.SerializerMethodField()
+    language = serializers.SerializerMethodField()
 
     class Meta:
         model = Project
@@ -40,6 +41,9 @@ class DetailPostSerializer(serializers.ModelSerializer):
             return project_user.get_role_display()
         except ProjectUser.DoesNotExist:
             return None
+
+    def get_language(self, obj):
+        return obj.get_language_display()
 
 class AddProjectUserSerializer(serializers.ModelSerializer):
     class Meta:

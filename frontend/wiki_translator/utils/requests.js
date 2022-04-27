@@ -4,7 +4,6 @@ import router from "next/router";
 
 const sendReq = async(url, tokenCookie=null, method="GET", data=null, setfunc=null) => {
     let response = {};
-    console.log(tokenCookie)
     try {
       if (data) {
         if (tokenCookie) {

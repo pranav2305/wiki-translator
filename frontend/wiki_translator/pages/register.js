@@ -82,7 +82,6 @@ const Register = () => {
         }
         if (res.ok) {
             const data = await res.json();
-            console.log(data)
             setCookie("user", data.key, {
                 path: "/",
                 maxAge: 2592000,

@@ -56,3 +56,8 @@ class AddProjectUserView(generics.CreateAPIView):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        
+class GetLanguageChoicesView(APIView):
+    def get(self, request, *args, **kwargs):
+        choices = Project.language.field.choices
+        return Response(choices)

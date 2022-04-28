@@ -1,5 +1,5 @@
-const DomainURL = 'http://localhost:8000/';
-const Host = 'localhost:8000';
+const DomainURL = 'https://wiki-translator.pranav2305.repl.co/';
+const Host = 'wiki-translator.pranav2305.repl.co';
 const LogInURL = DomainURL + 'api/users/login/';
 const SignUpURL = DomainURL + 'api/users/registration/';
 const LogOutURL = DomainURL + 'api/users/logout/';

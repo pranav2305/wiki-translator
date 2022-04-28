@@ -13,3 +13,5 @@ migrations/*
 
 node_modules/
 .next/
+
+.replit

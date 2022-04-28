@@ -97,27 +97,29 @@ const Register = () => {
     return (
         <div className="container">
             <h1>Register</h1>
-            <div className="form-group">
-                <label htmlFor="firstName">First Name</label>
-                <input type="text" className="form-control" id="firstName" ref={firstName} />
+            <div className="form-container">
+                <div className="form-group">
+                    <label htmlFor="firstName">First Name</label>
+                    <input type="text" className="form-control" id="firstName" ref={firstName} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="lastName">Last Name</label>
+                    <input type="text" className="form-control" id="lastName" ref={lastName} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" className="form-control" id="email" ref={email} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" className="form-control" id="password" ref={password} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password1">Confirm Password</label>
+                    <input type="password" className="form-control" id="password1" ref={password1} />
+                </div>
+                <button type="button" className="btn btn-primary" onClick={registerUser}>Register</button>
             </div>
-            <div className="form-group">
-                <label htmlFor="lastName">Last Name</label>
-                <input type="text" className="form-control" id="lastName" ref={lastName} />
-            </div>
-            <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input type="email" className="form-control" id="email" ref={email} />
-            </div>
-            <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input type="password" className="form-control" id="password" ref={password} />
-            </div>
-            <div className="form-group">
-                <label htmlFor="password1">Confirm Password</label>
-                <input type="password" className="form-control" id="password1" ref={password1} />
-            </div>
-            <button type="button" className="btn btn-primary" onClick={registerUser}>Register</button>
         </div>
     );
 }

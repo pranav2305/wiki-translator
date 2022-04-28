@@ -50,26 +50,30 @@ const DetailedProject = ({project}) => {
     return (
         <div className="container">
             <h1 className="project-title">{project.title}</h1>
-            <p className="lang">{project.language}</p>
-            <Link href={`/projects/${project.pk}/users`}><p className="link">View collaborators</p></Link>
-            {project.sentences.length!==0 && project.sentences.map((sentence, i) => (
-                <div className="row" key={sentence.pk}>
-                    <div className="col-md-6">
-                        <div className="form-group">
-                            <label htmlFor="original_sentence">Original Sentence</label>
-                            <textarea className="form-control" id="original_sentence" rows="3" defaultValue={sentence.original_sentence} disabled></textarea>
+            <div className="inner-container">
+                <p className="lang">{project.language}</p>
+                <Link href={`/projects/${project.pk}/users`}><p className="link">View collaborators</p></Link>
+                <div className="form-container">
+                    {project.sentences.length!==0 && project.sentences.map((sentence, i) => (
+                        <div className="row" key={sentence.pk}>
+                            <div className="col-md-6">
+                                <div className="form-group">
+                                    <label htmlFor="original_sentence">Original Sentence</label>
+                                    <textarea className="form-control" id="original_sentence" rows="3" defaultValue={sentence.original_sentence} disabled></textarea>
+                                </div>
+                            </div>
+                            <div className="col-md-6">
+                                <div className="form-group">
+                                    <label htmlFor="translated_sentence">Translated Sentence</label>
+                                    {sentenceRefs && sentenceRefs[i] && <textarea className="form-control" id={sentence.pk} rows="3" defaultValue={sentence.translated_sentence} ref={sentenceRefs[i]}></textarea>}
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-md-6">
-                        <div className="form-group">
-                            <label htmlFor="translated_sentence">Translated Sentence</label>
-                            {sentenceRefs && sentenceRefs[i] && <textarea className="form-control" id={sentence.pk} rows="3" defaultValue={sentence.translated_sentence} ref={sentenceRefs[i]}></textarea>}
-                        </div>
-                    </div>
+                    ))}
+                    {project.sentences.length===0 && <p>No sentences yet</p>}
+                    {project.sentences.length!==0 && <button type="button" className="btn btn-primary" onClick={submitSentences}>Submit</button>}
                 </div>
-            ))}
-            {project.sentences.length===0 && <p>No sentences yet</p>}
-            {project.sentences.length!==0 && <button type="button" className="btn btn-primary" onClick={submitSentences}>Submit</button>}
+            </div>
         </div>
     )
 }

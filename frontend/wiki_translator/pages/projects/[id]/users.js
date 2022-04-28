@@ -31,22 +31,30 @@ const ProjectUsers = ({projectUsers}) => {
     return (
         <div className="container">
             <h1>{projectUsers && projectUsers.title}</h1>
-            <div className="users row">
-                {projectUsers && projectUsers.users && projectUsers.users.length!==0 && projectUsers.users.map(user => (
-                    <ProjectUser key={user.user.pk} user={user.user} role={user.role} />
-                ))}
-            </div>
-            {projectUsers.role == "M" && <div className="add-user">
-            <h2>Add user</h2>
-                <div className="form-group">
-                    <input type="email" id="user_email" ref={new_user}/>
-                    <select name="user_roles" id="user_roles" ref={new_user_role}>
-                        <option value="M">Manager</option>
-                        <option value="A">Annotator</option>
-                    </select>
+            <div className="inner-container">
+                <div className="users row">
+                    {projectUsers && projectUsers.users && projectUsers.users.length!==0 && projectUsers.users.map(user => (
+                        <ProjectUser key={user.user.pk} user={user.user} role={user.role} />
+                    ))}
                 </div>
-                <button onClick={addUser} className="btn btn-primary">Add user</button>
-            </div>}
+                {projectUsers.role == "M" && <div className="add-user">
+                <h2>Add user</h2>
+                <div className="form-container">
+                    <div className="form-group">
+                        <label htmlFor="user_email">Enter user's email: </label>
+                        <input  className="form-control" type="email" id="user_email" ref={new_user}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="user_roles">Select user's role: </label>
+                        <select  className="form-control" name="user_roles" id="user_roles" ref={new_user_role}>
+                            <option value="M">Manager</option>
+                            <option value="A">Annotator</option>
+                        </select>
+                    </div>
+                    <button onClick={addUser} className="btn btn-primary">Add user</button>
+                </div>
+                </div>}
+            </div>
         </div>
     )
 }

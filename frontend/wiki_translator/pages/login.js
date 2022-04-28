@@ -45,16 +45,18 @@ const Login = () => {
     };
     return (
         <div className="container">
-        <h1>Login</h1>
-        <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="text" className="form-control" id="email" ref={email} />
-        </div>
-        <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input type="password" className="form-control" id="password" ref={password} />
-        </div>
-        <button type="button" className="btn btn-primary" onClick={login}>Login</button>
+            <h1>Login</h1>
+            <div className="form-container">
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input type="text" className="form-control" id="email" ref={email} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" className="form-control" id="password" ref={password} />
+                </div>
+                <button type="button" className="btn btn-primary" onClick={login}>Login</button>
+            </div>
         </div>
     );
 }

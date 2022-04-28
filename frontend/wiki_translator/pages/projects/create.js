@@ -33,19 +33,21 @@ const CreateProject = ({choices}) => {
     return (
         <div className="container">
             <h1>Create Project</h1>
-            <div className="form-group">
-                <label htmlFor="projectTitle">Project Title</label>
-                <input type="text" className="form-control" id="projectTitle" ref={projectTitle} />
+            <div className="form-container">
+                <div className="form-group">
+                    <label htmlFor="projectTitle">Project Title</label>
+                    <input type="text" className="form-control" id="projectTitle" ref={projectTitle} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="language">Language</label>
+                    <select className="form-control" id="language" ref={language}>
+                        {choices.map(choice => (
+                            <option key={choice[0]} value={choice[0]}>{choice[1]}</option>
+                        ))}
+                    </select>
+                </div>
+                <button type="button" className="btn btn-primary" onClick={createProject}>Create</button>
             </div>
-            <div className="form-group">
-                <label htmlFor="language">Language</label>
-                <select className="form-control" id="language" ref={language}>
-                    {choices.map(choice => (
-                        <option key={choice[0]} value={choice[0]}>{choice[1]}</option>
-                    ))}
-                </select>
-            </div>
-            <button type="button" className="btn btn-primary" onClick={createProject}>Create</button>
         </div>
     )
 }

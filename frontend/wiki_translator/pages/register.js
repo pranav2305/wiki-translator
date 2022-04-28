@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import {SignUpURL, Host} from "../utils/constants"
 import { useCookies } from "react-cookie";
+import "cookie"
 
 const Register = () => {
 
@@ -14,8 +15,7 @@ const Register = () => {
     const [cookies, setCookie] = useCookies(['user']);
 
     useEffect(()=> {
-        const tokenCookie = document.cookie;
-        if (tokenCookie) {
+        if (document.cookie && cookie.parse(document.cookie).user) {
             router.push("/projects");
         }
     }, [])

@@ -1,6 +1,7 @@
 import {ProjectURL} from '../../../utils/constants';
 import { sendReq } from '../../../utils/requests';
 import { useState, useEffect, createRef } from 'react';
+import Link from "next/link";
 
 const DetailedProject = ({project}) => {
 
@@ -50,6 +51,7 @@ const DetailedProject = ({project}) => {
         <div className="container">
             <h1 className="project-title">{project.title}</h1>
             <p className="lang">{project.language}</p>
+            <Link href={`/projects/${project.pk}/users`}><p className="link">View collaborators</p></Link>
             {project.sentences.length!==0 && project.sentences.map((sentence, i) => (
                 <div className="row" key={sentence.pk}>
                     <div className="col-md-6">

@@ -22,9 +22,14 @@ class ProjectSerializer(serializers.ModelSerializer):
 
 class UserProjectListSerializer(serializers.ModelSerializer):
     project = ProjectSerializer()
+    role = serializers.SerializerMethodField()
+    
     class Meta:
         model = ProjectUser
         fields = ('project','role',)
+
+    def get_role(self, obj):
+        return obj.get_role_display()
 
 class SentenceSerializer(serializers.ModelSerializer):
     class Meta:

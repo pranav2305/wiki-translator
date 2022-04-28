@@ -2,12 +2,12 @@ import { useRef, useEffect } from "react";
 import {useCookies} from "react-cookie";
 import {useRouter} from "next/router";
 import {LogInURL, Host} from "../utils/constants";
+import "cookie"
 
 const Login = () => {
 
     useEffect(() => {
-        const tokenCookie = document.cookie;
-        if (tokenCookie) {
+        if (document.cookie && cookie.parse(document.cookie).user) {
             router.push("/projects");
         }
     }, [])

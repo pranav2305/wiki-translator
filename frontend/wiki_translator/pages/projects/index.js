@@ -7,7 +7,7 @@ const Projects = ({projects}) => {
     return(
         <div className="container">
             <h1>Projects</h1>
-            <div>
+            <div className="row">
                 {projects.map(project => (
                     <Project key={project.project.pk} project={project.project} role={project.role} />
                 ))}

@@ -17,15 +17,21 @@ const ProjectUsers = ({projectUsers}) => {
             email: new_user.current.value,
             role: new_user_role.current.value
         })
-        console.log(data);
-        const res = await sendReq(`${ProjectURL}${projectUsers.pk}/users/add/`, tokenCookie, "POST", data);
-        console.log(res);
+        try {
+            const res = await sendReq(`${ProjectURL}${projectUsers.pk}/users/add/`, tokenCookie, "POST", data);
+            window.location.reload();
+        }
+        catch (err) {
+            console.log(err);
+            router.push('/404');
+        }
+        
     }
     
     return (
         <div className="container">
             <h1>{projectUsers && projectUsers.title}</h1>
-            <div className="users">
+            <div className="users row">
                 {projectUsers && projectUsers.users && projectUsers.users.length!==0 && projectUsers.users.map(user => (
                     <ProjectUser key={user.user.pk} user={user.user} role={user.role} />
                 ))}

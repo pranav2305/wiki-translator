@@ -41,7 +41,7 @@ const CreateProject = ({choices}) => {
                 <label htmlFor="language">Language</label>
                 <select className="form-control" id="language" ref={language}>
                     {choices.map(choice => (
-                        <option key={choices[0]} value={choices[0]}>{choice[1]}</option>
+                        <option key={choice[0]} value={choice[0]}>{choice[1]}</option>
                     ))}
                 </select>
             </div>

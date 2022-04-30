@@ -1,14 +1,25 @@
 #  Wiki Translator
 
+Backend - https://wiki-translator.pranav2305.repl.co/ <br>
+Frontend - https://wiki-translator-1.pranav2305.repl.co/
+
+
+## About
+This project is essentially built for effeciently managing the process of translation of a wikipedia page. <br>
+This project provides an interface for people to put up titles of wikipedia pages that they want to get translated. Once a new project is created the creator can add more people to the project either as Annotators or Managers. The annotators only have permission to update the translated sentences whereas the Managers also have the permission to add other people to the project.
+
 ## Tech Stack
 - Django Rest Framework
 - Next.js
-- SQLite
+- SQLite3
 
 ## Setup Instructions
 
 1. Clone the repository <br>
-`git clone `
+`git clone https://github.com/pranav2305/wiki-translator.git`
+
+2. cd to the base directory of the project <br>
+`cd wiki_translator/`
 
 ### Backend
 
@@ -30,7 +41,8 @@
 6. Run the server <br>
 `python3 manage.py runserver`
 
-The backend will be deployed [here](http://127.0.0.1:8000/).
+The backend will be deployed [here](http://127.0.0.1:8000/). <br>
+**Note: For windows use `python` instead of `python3` in all the commands.**
 
 ### Frontend
 
